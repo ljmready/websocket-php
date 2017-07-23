@@ -291,8 +291,8 @@ class WebSocketTest extends PHPUnit_Framework_TestCase {
       . "User-Agent: websocket-client-php\r\n"
       . "Connection: Upgrade\r\n"
       . "Upgrade: websocket\r\n"
-      . "Sec-Websocket-Key: .*\r\n"
-      . "Sec-Websocket-Version: 13\r\n/",
+      . "Sec-WebSocket-Key: .*\r\n"
+      . "Sec-WebSocket-Version: 13\r\n/",
       $ws->receive()
     );
   }
@@ -314,8 +314,8 @@ class WebSocketTest extends PHPUnit_Framework_TestCase {
       . "User-Agent: Deep thought\r\n"
       . "Connection: Upgrade\r\n"
       . "Upgrade: websocket\r\n"
-      . "Sec-Websocket-Key: .*\r\n"
-      . "Sec-Websocket-Version: 13\r\n/",
+      . "Sec-WebSocket-Key: .*\r\n"
+      . "Sec-WebSocket-Version: 13\r\n/",
       $ws->receive()
     );
   }
@@ -333,13 +333,13 @@ class WebSocketTest extends PHPUnit_Framework_TestCase {
 
     $this->assertRegExp(
       "/GET \/$this->test_id HTTP\/1.1\r\n"
-      . "host: localhost:" . self::$ports[$port] . "\r\n"
-      . "user-agent: websocket-client-php\r\n"
-      . "connection: Upgrade\r\n"
-      . "upgrade: websocket\r\n"
-      . "sec-websocket-key: .*\r\n"
-      . "sec-websocket-version: 13\r\n"
-      . "x-cooler-than-beeblebrox: Slartibartfast\r\n/",
+      . "Host: localhost:" . self::$ports[$port] . "\r\n"
+      . "User-Agent: websocket-client-php\r\n"
+      . "Connection: Upgrade\r\n"
+      . "Upgrade: websocket\r\n"
+      . "Sec-WebSocket-Key: .*\r\n"
+      . "Sec-WebSocket-Version: 13\r\n"
+      . "X-Cooler-Than-Beeblebrox: Slartibartfast\r\n/",
       $ws->receive()
     );
   }

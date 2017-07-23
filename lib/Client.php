@@ -109,8 +109,8 @@ class Client extends Base {
       'User-Agent'            => 'websocket-client-php',
       'Connection'            => 'Upgrade',
       'Upgrade'               => 'websocket',
-      'Sec-Websocket-Key'     => $key,
-      'Sec-Websocket-Version' => '13',
+      'Sec-WebSocket-Key'     => $key,
+      'Sec-WebSocket-Version' => '13',
     );
 
     // Handle basic authentication.
