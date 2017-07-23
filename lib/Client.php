@@ -103,14 +103,14 @@ class Client extends Base {
     // Generate the WebSocket key.
     $key = self::generateKey();
 
-    // Default headers (using lowercase for simpler array_merge below).
+    // Default headers .
     $headers = array(
-      'host'                  => $host . ":" . $port,
-      'user-agent'            => 'websocket-client-php',
-      'connection'            => 'Upgrade',
-      'upgrade'               => 'websocket',
-      'sec-websocket-key'     => $key,
-      'sec-websocket-version' => '13',
+      'Host'                  => $host . ":" . $port,
+      'User-Agent'            => 'websocket-client-php',
+      'Connection'            => 'Upgrade',
+      'Upgrade'               => 'websocket',
+      'Sec-Websocket-Key'     => $key,
+      'Sec-Websocket-Version' => '13',
     );
 
     // Handle basic authentication.
@@ -123,7 +123,7 @@ class Client extends Base {
 
     // Add and override with headers from options.
     if (isset($this->options['headers'])) {
-      $headers = array_merge($headers, array_change_key_case($this->options['headers']));
+      $headers = array_merge($headers, $this->options['headers']);
     }
 
     $header =
